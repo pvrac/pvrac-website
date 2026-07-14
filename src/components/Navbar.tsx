@@ -23,7 +23,7 @@ export default function Navbar() {
     <header className={styles.header}>
       <div className={styles.bar}>
         <Link href="/" className={styles.logoLink} onClick={() => setIsOpen(false)}>
-          <Image src="pvrac-website/public/images/logo.png" alt="PVRAC Logo" width={61} height={64} priority />
+          <Image src="/images/logo.png" alt="PVRAC Logo" width={61} height={64} priority />
           <span className={styles.titleText}>Pierre van Ryneveld Athletics Club</span>
         </Link>
 
