@@ -1,0 +1,132 @@
+.about {
+  background: rgba(255, 255, 255, 0.93);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.aboutText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.aboutText p {
+  margin-bottom: 1.5rem;
+}
+
+.disciplinePicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.disciplinePicker label {
+  font-weight: 600;
+  color: var(--dark-blue);
+  font-size: 1.05rem;
+}
+
+.disciplinePicker select {
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  border: 2px solid var(--dark-blue);
+  background: var(--white);
+  color: var(--navy);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.disciplinePicker select:hover,
+.disciplinePicker select:focus {
+  border-color: var(--dark-gold);
+  box-shadow: 0 5px 20px rgba(255, 214, 10, 0.3);
+  outline: none;
+}
+
+.pricingNote {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.pricingNote strong {
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.meetingInfo {
+  background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+  padding: 2.5rem;
+  border-radius: 20px;
+  color: var(--white);
+  box-shadow: 0 15px 40px rgba(0, 119, 182, 0.3);
+}
+
+.meetingInfo h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--gold);
+}
+
+.meetingTimes {
+  list-style: none;
+}
+
+.meetingTimes li {
+  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
+  padding-left: 2rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.meetingTimes li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 1.5rem;
+}
+
+.meetingTimes li strong {
+  color: var(--gold);
+  display: block;
+}
+
+.meetingTimes li small {
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+.meetingTimes a {
+  color: var(--gold);
+  text-decoration: underline;
+  transition: opacity 0.3s ease;
+}
+
+.meetingTimes a:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .aboutContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

@@ -1,0 +1,197 @@
+.membership {
+  background: linear-gradient(135deg, rgba(3, 4, 94, 0.87) 0%, rgba(0, 119, 182, 0.82) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--white);
+}
+
+.intro {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+}
+
+.membershipGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.pricingCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  border: 2px solid rgba(255, 214, 10, 0.3);
+  transition: all 0.3s ease;
+}
+
+.pricingCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  box-shadow: 0 15px 40px rgba(255, 214, 10, 0.3);
+}
+
+.pricingCard h3 {
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin: 1rem 0;
+}
+
+.priceBreakdown {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+.priceBreakdown div {
+  margin-bottom: 0.5rem;
+}
+
+.pricingCard p {
+  opacity: 0.9;
+}
+
+.joiningProcess {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2.5rem;
+}
+
+.joiningProcess h3 {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 2rem;
+}
+
+.processSteps {
+  list-style: none;
+}
+
+.processSteps li {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  padding-left: 3rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.processSteps li::before {
+  content: attr(data-step);
+  position: absolute;
+  left: 0;
+  width: 35px;
+  height: 35px;
+  background: var(--gold);
+  color: var(--navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.processSteps a {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+.processSteps a:hover {
+  color: var(--dark-gold);
+}
+
+/* Forms */
+.forms {
+  background: rgba(248, 249, 250, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.formsIntro {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.formsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.formCard {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.formCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.formIcon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2.2rem;
+}
+
+.formCard h3 {
+  font-size: 1.8rem;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.formCard p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.downloadBtn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--gold);
+  color: var(--navy);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+
+.downloadBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 214, 10, 0.4);
+  background: var(--dark-gold);
+}
+
+@media (max-width: 768px) {
+  .membershipGrid,
+  .formsGrid {
+    grid-template-columns: 1fr;
+  }
+}

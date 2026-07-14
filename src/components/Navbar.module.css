@@ -1,0 +1,153 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, rgba(3, 4, 94, 0.9) 0%, rgba(0, 119, 182, 0.9) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+/* Header sizes are pinned in px (not rem) so the global root font-size bump
+   in globals.css scales the page body but leaves the header unchanged. */
+.bar {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoLink img {
+  height: 64px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.titleText {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(16px, 2.4vw, 24px);
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.navLink {
+  display: inline-block;
+  padding: 10px 18px;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--gold);
+}
+
+.navLinkActive {
+  color: var(--gold);
+  background: rgba(255, 214, 10, 0.12);
+}
+
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.menuButton span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: var(--white);
+  border-radius: 2px;
+  margin: 5px 0;
+  transition: all 0.25s ease;
+}
+
+.menuButton.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menuButton.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuButton.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  .bar {
+    padding: 0 19px;
+  }
+
+  .logoLink img {
+    height: 48px;
+    width: auto;
+  }
+
+  .nav {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: rgba(3, 4, 94, 0.97);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .navOpen {
+    max-height: 500px;
+  }
+
+  .navLink {
+    padding: 14px 16px;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .menuButton {
+    display: block;
+  }
+}

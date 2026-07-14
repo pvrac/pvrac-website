@@ -1,0 +1,187 @@
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--dark-blue) 100%);
+  padding: 3rem 2rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Full-bleed photo (cover). Positioned near the bottom so cropping mostly
+   removes the sky at the top, trimming only a sliver below the front row
+   (around the kneeling members' hands) and keeping everyone's heads in frame. */
+.heroPhoto {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('/images/club-event-photo.jpg') center 72% / cover no-repeat;
+}
+
+/* Tint over the photo so the overlaid text stays legible */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(135deg, rgba(3, 4, 94, 0.82) 0%, rgba(0, 90, 140, 0.68) 50%, rgba(0, 150, 199, 0.55) 100%),
+    radial-gradient(circle at 20% 50%, rgba(255, 214, 10, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 180, 216, 0.18) 0%, transparent 50%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+.tagline {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.heroLead {
+  color: var(--white);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  max-width: 640px;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+  line-height: 1.7;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Intro */
+.intro {
+  background: rgba(255, 255, 255, 0.93);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  text-align: center;
+}
+
+.introText {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.activitiesList {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.activityTag {
+  background: var(--light-gray);
+  padding: 0.5rem 1.1rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  color: var(--dark-blue);
+  font-weight: 600;
+}
+
+/* Quick links */
+.quickLinks {
+  background: rgba(248, 249, 250, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: var(--white);
+  padding: 2.25rem 1.75rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: 0 15px 40px rgba(0, 119, 182, 0.18);
+}
+
+.cardIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Training snapshot */
+.trainingSnapshot {
+  background: linear-gradient(135deg, rgba(3, 4, 94, 0.87) 0%, rgba(0, 119, 182, 0.82) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--white);
+  text-align: center;
+}
+
+.trainingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+  text-align: left;
+}
+
+.trainingCard {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 214, 10, 0.25);
+  border-radius: 16px;
+  padding: 1.75rem;
+}
+
+.trainingCard strong {
+  display: block;
+  color: var(--gold);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.trainingCard span {
+  display: block;
+  opacity: 0.85;
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+}

@@ -1,0 +1,135 @@
+:root {
+  --primary-blue: #00b4d8;
+  --dark-blue: #0077b6;
+  --navy: #03045e;
+  --gold: #ffd60a;
+  --dark-gold: #faa307;
+  --white: #ffffff;
+  --light-gray: #f8f9fa;
+  --text-dark: #1a1a1a;
+  --header-height: 88px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Fluid base size: all rem-based text/spacing scales from this. Stays 16px
+     on small screens, grows to ~19px on wide desktops where there's more
+     whitespace around the text. The header is pinned to px (Navbar.module.css)
+     so it is unaffected by this. */
+  font-size: clamp(16px, 15.2px + 0.3vw, 19px);
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-dark);
+  overflow-x: hidden;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--dark-blue) 100%);
+}
+
+main {
+  padding-top: var(--header-height);
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 5rem 2rem;
+  position: relative;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 3px;
+}
+
+.section-title.on-dark {
+  color: var(--white);
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1.2rem 3rem;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(255, 214, 10, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0.5rem;
+  border: 2px solid var(--gold);
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 214, 10, 0.6);
+  background: var(--dark-gold);
+  border-color: var(--dark-gold);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: var(--gold);
+}
+
+.cta-button.secondary:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .cta-button {
+    display: block;
+    margin: 0.5rem auto;
+    text-align: center;
+  }
+}

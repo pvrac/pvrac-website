@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node -v)",
+      "PowerShell(npm -v)",
+      "Bash(mkdir -p legacy-static-site)",
+      "Bash(mv index.html legacy-static-site/)",
+      "Bash(mv files *)",
+      "Bash(mv \"Club webpage.docx\" legacy-static-site/)",
+      "Bash(mkdir -p public/images public/forms)",
+      "Bash(cp \"legacy-static-site/files/IMG-20241118-WA0020.jpg\" public/images/logo.jpg)",
+      "Bash(cp \"legacy-static-site/files/IMG-20241118-WA0017.jpg\" public/images/crest-hero.jpg)",
+      "Bash(cp \"legacy-static-site/files/IMG-20241118-WA0024.jpg\" public/images/swirl-bg.jpg)",
+      "PowerShell($paths = @\\(\"$env:ProgramFiles\\\\nodejs\\\\node.exe\", \"$env:ProgramFiles\\(x86\\)\\\\nodejs\\\\node.exe\", \"$env:LOCALAPPDATA\\\\Programs\\\\nodejs\\\\node.exe\", \"$env:APPDATA\\\\npm\\\\node.exe\"\\); foreach \\($p in $paths\\) { if \\(Test-Path $p\\) { Write-Output \"FOUND: $p\" } }; Get-Command node -ErrorAction SilentlyContinue; where.exe node 2>$null; Get-ChildItem -Path \"$env:LOCALAPPDATA\\\\nvm\" -ErrorAction SilentlyContinue)",
+      "Bash(npm install *)",
+      "Bash(mv ASA-License-Form.pdf public/forms/)",
+      "Bash(mv PVR-Application-Form.pdf public/forms/)",
+      "Bash(mv club-event-photo.jpg public/images/club-event-photo.jpg)",
+      "Bash(mv club-kit.png public/images/club-kit.png)",
+      "Bash(mv gallery1.jpg public/images/gallery-1.jpg)",
+      "Bash(rm public/images/crest-hero.jpg)",
+      "Bash(rm public/forms/README.md)",
+      "WebFetch(domain:www.cofcmensrugby.com)",
+      "Bash(python -c \"import PIL; print\\('PIL', PIL.__version__\\)\")",
+      "Bash(python3 -c \"import PIL; print\\('PIL', PIL.__version__\\)\")",
+      "Bash(py -c \"import PIL; print\\('PIL', PIL.__version__\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(python -c \"from PIL import Image; [print\\(f, Image.open\\('public/images/'+f\\).size\\) for f in ['club-kit.png','cycle-kit.png']]\")",
+      "WebFetch(domain:asa.org.za)",
+      "WebFetch(domain:www.strava.com)",
+      "WebFetch(domain:www.athletics.org.za)",
+      "WebFetch(domain:www.facebook.com)",
+      "WebSearch",
+      "WebFetch(domain:asa.saclubs.co.za)",
+      "WebFetch(domain:formspree.io)"
+    ]
+  }
+}

@@ -1,0 +1,132 @@
+.clubKit {
+  background: rgba(255, 255, 255, 0.93);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.kitContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.kitContent + .kitContent {
+  margin-top: 4rem;
+}
+
+/* Cycling block: image on the right on desktop */
+.reversed .kitImage {
+  order: 2;
+}
+
+.reversed .kitInfo {
+  order: 1;
+}
+
+.kitImage {
+  width: 100%;
+  max-width: 440px;
+  margin-inline: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+  background: var(--light-gray);
+}
+
+.kitImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.kitInfo {
+  background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+  padding: 3rem;
+  border-radius: 20px;
+  color: var(--white);
+  box-shadow: 0 15px 40px rgba(0, 119, 182, 0.3);
+}
+
+.kitInfo h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--gold);
+}
+
+.kitPrice {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 2rem;
+}
+
+.kitInfo > p {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+.kitItems {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.kitItems li {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.kitItems li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.orderCallout {
+  margin-top: 3.5rem;
+  background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+  color: var(--white);
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  box-shadow: 0 15px 40px rgba(0, 119, 182, 0.3);
+}
+
+.orderCallout strong {
+  display: block;
+  color: var(--gold);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.orderCallout a {
+  color: var(--gold);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .kitContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Keep image above info on mobile for both kits */
+  .reversed .kitImage {
+    order: 0;
+  }
+
+  .reversed .kitInfo {
+    order: 0;
+  }
+}
