@@ -19,7 +19,12 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: url('/images/club-event-photo.jpg') center 72% / cover no-repeat;
+  /* background-image is set inline in page.tsx so the deploy basePath can be
+     applied: CSS url() is NOT rewritten for GitHub Pages subpath deploys.
+     The 72% vertical position is the crop knob. */
+  background-position: center 72%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* Tint over the photo so the overlaid text stays legible */

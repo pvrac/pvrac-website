@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import PageBanner from '@/components/PageBanner';
+import { withBasePath } from '@/lib/basePath';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export default function ClubKitPage() {
           <div className={styles.kitContent}>
             <div className={styles.kitImage}>
               <Image
-                src="/images/club-kit.png"
+                src={withBasePath('/images/club-kit.png')}
                 alt="PVRAC athletics club vest, front"
                 width={834}
                 height={976}
@@ -52,7 +53,7 @@ export default function ClubKitPage() {
           <div className={`${styles.kitContent} ${styles.reversed}`}>
             <div className={styles.kitImage}>
               <Image
-                src="/images/cycle-kit.png"
+                src={withBasePath('/images/cycle-kit.png')}
                 alt="PVRAC cycling jersey, front"
                 width={465}
                 height={551}

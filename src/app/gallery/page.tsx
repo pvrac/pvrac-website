@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import PageBanner from '@/components/PageBanner';
+import { withBasePath } from '@/lib/basePath';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -9,9 +10,12 @@ export const metadata: Metadata = {
 };
 
 const GALLERY_IMAGES = [
-  { src: '/images/gallery-1.jpg', alt: 'PVRAC runner in action during a race' },
-  { src: '/images/gallery-2.jpg', alt: 'PVRAC club members with race medals' },
-  { src: '/images/gallery-3.jpg', alt: 'PVRAC club group photo after a run and cycle' },
+  { src: withBasePath('/images/gallery-1.jpg'), alt: 'PVRAC runner in action during a race' },
+  { src: withBasePath('/images/gallery-2.jpg'), alt: 'PVRAC club members with race medals' },
+  {
+    src: withBasePath('/images/gallery-3.jpg'),
+    alt: 'PVRAC club group photo after a run and cycle',
+  },
 ];
 
 export default function GalleryPage() {

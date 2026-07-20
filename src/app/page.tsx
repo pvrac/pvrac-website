@@ -1,11 +1,16 @@
 import Link from 'next/link';
+import { withBasePath } from '@/lib/basePath';
 import styles from './page.module.css';
 
 export default function HomePage() {
   return (
     <>
       <section className={styles.hero}>
-        <div className={styles.heroPhoto} aria-hidden="true" />
+        <div
+          className={styles.heroPhoto}
+          aria-hidden="true"
+          style={{ backgroundImage: `url('${withBasePath('/images/club-event-photo.jpg')}')` }}
+        />
         <div className={styles.heroContent}>
           <p className={styles.tagline}>Where Every Run Takes Flight ✈️</p>
           <p className={styles.heroLead}>

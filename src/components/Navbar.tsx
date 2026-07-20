@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { withBasePath } from '@/lib/basePath';
 import styles from './Navbar.module.css';
 
 const NAV_LINKS = [
@@ -23,7 +24,13 @@ export default function Navbar() {
     <header className={styles.header}>
       <div className={styles.bar}>
         <Link href="/" className={styles.logoLink} onClick={() => setIsOpen(false)}>
-          <Image src="/images/logo.png" alt="PVRAC Logo" width={61} height={64} priority />
+          <Image
+            src={withBasePath('/images/logo.png')}
+            alt="PVRAC Logo"
+            width={61}
+            height={64}
+            priority
+          />
           <span className={styles.titleText}>Pierre van Ryneveld Athletics Club</span>
         </Link>
 

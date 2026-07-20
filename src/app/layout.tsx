@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { withBasePath } from '@/lib/basePath';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -8,8 +9,8 @@ export const metadata: Metadata = {
   description:
     'Pierre van Ryneveld Athletics Club (PVRAC): road running, walking and cycling in Centurion. Join our community, train with us, and run with us.',
   icons: {
-    icon: '/images/logo.jpg',
-    apple: '/images/logo.jpg',
+    icon: withBasePath('/images/logo.png'),
+    apple: withBasePath('/images/logo.png'),
   },
 };
 
