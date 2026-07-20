@@ -4,11 +4,79 @@
   -webkit-backdrop-filter: blur(8px);
   color: var(--white);
   text-align: center;
-  padding: 2rem;
+  padding: 1.75rem 2rem;
   font-size: 0.9rem;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footerText {
+  flex: 1;
 }
 
 .tagline {
   margin-top: 0.5rem;
   opacity: 0.7;
+}
+
+.sponsorGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Sponsor logos come from mixed sources (some designed for light backgrounds,
+   some for dark), so each sits on a white tile: consistent, and every logo is
+   shown on the backing it was drawn for. */
+.sponsorTile {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 0.4rem 0.55rem;
+  width: 96px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sponsorTile:hover,
+.sponsorTile:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 214, 10, 0.35);
+  outline: none;
+}
+
+.sponsorTile img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+  .inner {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Text first, then all logos in one wrapping row underneath */
+  .footerText {
+    order: -1;
+  }
+
+  .sponsorGroup {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
