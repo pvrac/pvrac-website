@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ClubKitPage() {
   return (
     <>
-      <PageBanner title="Club Kit" subtitle="Look sharp, run fast, ride strong" />
+      <PageBanner title="Club Kit" subtitle="Look Sharp. Run Fast. Ride Strong." />
 
       <section className={styles.clubKit}>
         <div className="container">

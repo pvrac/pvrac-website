@@ -130,15 +130,20 @@
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    padding: 8px;
+    /* No vertical padding / shadow while collapsed: with box-sizing: border-box,
+       max-height: 0 can't shrink below the vertical padding, which would leak a
+       blue strip (and the shadow) below the header. Both live on .navOpen. */
+    padding: 0 8px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   }
 
   .navOpen {
     max-height: 500px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   }
 
   .navLink {

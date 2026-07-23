@@ -62,7 +62,7 @@ function RunWalkContent() {
           <ul className={styles.meetingTimes}>
             <li>
               <strong>Tuesdays &amp; Thursdays</strong>
-              17:30 | Club Runs
+              17:20 | Club Runs
               <br />
               <small>
                 Meet at{' '}

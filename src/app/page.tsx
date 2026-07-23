@@ -53,7 +53,7 @@ export default function HomePage() {
           <div className={styles.trainingGrid}>
             <div className={styles.trainingCard}>
               <strong>Tuesdays &amp; Thursdays</strong>
-              17:30 | Club Runs
+              17:20 | Club Runs
               <span>From the Church, Baltimore Street</span>
             </div>
             <div className={styles.trainingCard}>

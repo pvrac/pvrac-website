@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function MembershipPage() {
   return (
     <>
-      <PageBanner title="Join Our Community" subtitle="Become part of the PVRAC family" />
+      <PageBanner title="Join Our Community" subtitle="Become Part Of The PVRAC Family" />
 
       <section className={styles.membership}>
         <div className="container">

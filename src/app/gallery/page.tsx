@@ -50,7 +50,7 @@ export default function GalleryPage() {
 
   return (
     <>
-      <PageBanner title="Gallery" subtitle="Moments from the road" />
+      <PageBanner title="Gallery" subtitle="Moments From The Road" />
 
       <section className={styles.gallery}>
         <div className="container">
