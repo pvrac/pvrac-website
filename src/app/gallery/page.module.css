@@ -91,6 +91,9 @@
   position: relative;
   width: min(90vw, 1200px);
   height: min(85vh, 900px);
+  /* dvh accounts for the mobile address bar, so the image never grows taller
+     than the visible screen and rises up over the close/nav buttons. */
+  height: min(85dvh, 900px);
 }
 
 .lightboxImage {
@@ -99,6 +102,7 @@
 
 .lightboxClose {
   position: absolute;
+  z-index: 10;
   top: 1rem;
   right: 1.5rem;
   background: none;
@@ -121,6 +125,7 @@
 
 .lightboxNav {
   position: absolute;
+  z-index: 10;
   top: 50%;
   transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.12);
