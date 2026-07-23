@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import styles from './page.module.css';
 
@@ -62,8 +63,9 @@ export default function GalleryGrid({ images }: { images: GalleryImage[] }) {
         ))}
       </div>
 
-      {current && (
-        <div className={styles.lightbox} onClick={close} role="dialog" aria-modal="true" aria-label="Gallery image viewer">
+      {current &&
+        createPortal(
+          <div className={styles.lightbox} onClick={close} role="dialog" aria-modal="true" aria-label="Gallery image viewer">
           <button type="button" className={styles.lightboxClose} onClick={close} aria-label="Close">
             &times;
           </button>
@@ -107,8 +109,9 @@ export default function GalleryGrid({ images }: { images: GalleryImage[] }) {
               &#8250;
             </button>
           )}
-        </div>
-      )}
+          </div>,
+          document.body,
+        )}
     </>
   );
 }
