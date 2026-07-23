@@ -15,12 +15,28 @@
 
 .galleryGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 2rem;
 }
 
+.empty {
+  text-align: center;
+  color: #666;
+  font-size: 1.15rem;
+  padding: 3rem 1rem;
+}
+
 .galleryItem {
+  /* rendered as a <button> for the lightbox — reset native button styling */
+  appearance: none;
+  border: none;
+  padding: 0;
+  background: none;
+  width: 100%;
+  font: inherit;
+
   position: relative;
+  display: block;
   overflow: hidden;
   border-radius: 20px;
   aspect-ratio: 1;
@@ -29,8 +45,14 @@
   transition: transform 0.3s ease;
 }
 
-.galleryItem:hover {
+.galleryItem:hover,
+.galleryItem:focus-visible {
   transform: scale(1.03);
+  outline: none;
+}
+
+.galleryItem:focus-visible {
+  box-shadow: 0 0 0 4px var(--gold), 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .galleryItem img {
@@ -38,6 +60,111 @@
   transition: transform 0.5s ease;
 }
 
-.galleryItem:hover img {
+.galleryItem:hover img,
+.galleryItem:focus-visible img {
   transform: scale(1.1);
+}
+
+/* --- Lightbox --- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: lightboxFade 0.2s ease;
+}
+
+@keyframes lightboxFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lightboxImageWrap {
+  position: relative;
+  width: min(90vw, 1200px);
+  height: min(85vh, 900px);
+}
+
+.lightboxImage {
+  object-fit: contain;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 3rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem 0.75rem;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.lightboxClose:hover,
+.lightboxClose:focus-visible {
+  color: var(--gold);
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+.lightboxNav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  line-height: 1;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lightboxNav:hover,
+.lightboxNav:focus-visible {
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--gold);
+  outline: none;
+}
+
+.lightboxPrev {
+  left: 1rem;
+}
+
+.lightboxNext {
+  right: 1rem;
+}
+
+@media (max-width: 600px) {
+  .lightboxNav {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 2rem;
+  }
+
+  .lightboxPrev {
+    left: 0.25rem;
+  }
+
+  .lightboxNext {
+    right: 0.25rem;
+  }
 }
