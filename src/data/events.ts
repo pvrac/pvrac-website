@@ -38,24 +38,25 @@ export type ClubEvent = {
 export const EVENTS: ClubEvent[] = [
   // ===== EXAMPLES — replace these with your real races before going live =====
   {
-    date: '2026-08-09',
-    title: 'Example City Marathon',
-    location: 'Pretoria',
-    distances: ['42.2 km', '21.1 km', '10 km'],
+    date: '2026-07-25',
+    title: 'TUT Corporate Race',
+    location: 'TUT Pretoria West campus',
+    distances: ['21.1 km', '10 km'],
     // registrationUrl: 'https://enter.example.com/city-marathon',
   },
   {
-    date: '2026-08-23',
-    title: 'Example Club Championship',
-    location: 'Pierre van Ryneveld',
-    distances: ['10 km', '5 km'],
-    note: 'Club colours day — wear your PVRAC kit!',
+    date: '2026-08-08',
+    title: 'Eyethu Fitness Test',
+    location: 'Quagga Shopping Centre',
+    distances: ['32 km','21.1 km','10 km', '5 km'],
+    
   },
   {
-    date: '2026-09-06',
-    title: 'Example Trail Run',
-    location: 'Centurion',
-    distances: ['15 km', '8 km'],
+    date: '2026-08-23',
+    title: 'ABSA Run Your City Tshwane',
+    location: 'Union Buildings',
+    distances: ['10 km'],
+	note: 'SOLD OUT',
   },
   {
     date: '2026-07-04',
