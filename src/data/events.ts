@@ -42,14 +42,14 @@ export const EVENTS: ClubEvent[] = [
     title: 'TUT Corporate Race',
     location: 'TUT Pretoria West campus',
     distances: ['21.1 km', '10 km'],
-    // registrationUrl: 'https://enter.example.com/city-marathon',
+    
   },
   {
     date: '2026-08-08',
     title: 'Eyethu Fitness Test',
     location: 'Quagga Shopping Centre',
     distances: ['32 km','21.1 km','10 km', '5 km'],
-    
+    registrationUrl: 'https://www.entryninja.com/events/83930-eyethu-fitness-test',
   },
   {
     date: '2026-08-23',
