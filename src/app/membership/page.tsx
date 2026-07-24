@@ -20,7 +20,9 @@ export default function MembershipPage() {
           <div className={styles.membershipGrid}>
             <div className={styles.pricingCard}>
               <h3>Senior Membership</h3>
-              <div className={styles.price}>R580</div>
+              <div className={styles.price}>
+                R580 <span className={styles.priceUnit}>per annum</span>
+              </div>
               <div className={styles.priceBreakdown}>
                 <div>Club Fee: R350</div>
                 <div>ASA License: R230</div>
@@ -33,7 +35,9 @@ export default function MembershipPage() {
 
             <div className={styles.pricingCard}>
               <h3>Junior Membership</h3>
-              <div className={styles.price}>R480</div>
+              <div className={styles.price}>
+                R480 <span className={styles.priceUnit}>per annum</span>
+              </div>
               <div className={styles.priceBreakdown}>
                 <div>Club Fee: R350</div>
                 <div>ASA License: R130</div>
@@ -46,7 +50,9 @@ export default function MembershipPage() {
 
             <div className={styles.pricingCard}>
               <h3>Social Membership</h3>
-              <div className={styles.price}>R350</div>
+              <div className={styles.price}>
+                R350 <span className={styles.priceUnit}>per annum</span>
+              </div>
               <div className={styles.priceBreakdown}>
                 <div>Club Fee Only</div>
                 <div>(No ASA License)</div>
@@ -90,6 +96,32 @@ export default function MembershipPage() {
                 <small>⚠️ Payment proof is required - application won&apos;t be processed without it</small>
               </li>
             </ul>
+
+            <div className={styles.bankDetails}>
+              <h4>Banking Details</h4>
+              <dl className={styles.bankList}>
+                <div>
+                  <dt>Bank</dt>
+                  <dd>FNB / RMB</dd>
+                </div>
+                <div>
+                  <dt>Account Name</dt>
+                  <dd>PVR ATHLETICS CLUB</dd>
+                </div>
+                <div>
+                  <dt>Account Type</dt>
+                  <dd>Demand Deposit</dd>
+                </div>
+                <div>
+                  <dt>Account Number</dt>
+                  <dd>62437148019</dd>
+                </div>
+                <div>
+                  <dt>Branch Code</dt>
+                  <dd>210529</dd>
+                </div>
+              </dl>
+            </div>
           </div>
         </div>
       </section>

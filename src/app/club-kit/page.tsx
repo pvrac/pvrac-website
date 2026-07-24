@@ -29,7 +29,9 @@ export default function ClubKitPage() {
 
             <div className={styles.kitInfo}>
               <h3>Athletics Kit</h3>
-              <div className={styles.kitPrice}>R350</div>
+              <div className={styles.kitPrice}>
+                R350 <span className={styles.priceUnit}>per item</span>
+              </div>
               <p>
                 Represent Pierre van Ryneveld Athletics Club in style with our premium running
                 kit.

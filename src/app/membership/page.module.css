@@ -46,6 +46,12 @@
   margin: 1rem 0;
 }
 
+.priceUnit {
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.75;
+}
+
 .priceBreakdown {
   font-size: 0.9rem;
   opacity: 0.8;
@@ -107,6 +113,40 @@
 
 .processSteps a:hover {
   color: var(--dark-gold);
+}
+
+.bankDetails {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.bankDetails h4 {
+  font-size: 1.35rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.bankList {
+  display: grid;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+}
+
+.bankList > div {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.bankList dt {
+  min-width: 150px;
+  opacity: 0.8;
+}
+
+.bankList dd {
+  margin: 0;
+  font-weight: 600;
 }
 
 /* Forms */
