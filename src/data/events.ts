@@ -66,7 +66,27 @@ export const EVENTS: ClubEvent[] = [
     resultsUrl: 'https://results.finishtime.co.za/results.aspx?CId=35&RId=5829',
     photo: '/images/races/icebreaker.jpeg',
   },
-
+{
+    date: '2026-08-26',
+    title: 'PVR Dorpsfees Night Race',
+    location: 'PVR Geloofsfamilie',
+    distances: ['10 km', '5 km'],
+    registrationUrl: 'https://www.entryninja.com/events/83946-pvr-dorpsfees-night-race',
+  },
+  {
+    date: '2026-08-29',
+    title: 'Ultimate Fast Challenge',
+    location: 'Kolonnade Retail Park',
+    distances: ['10 km', '5 km'],
+    registrationUrl: 'https://www.entryninja.com/events/83746-ultimate-fast-challenge-race',
+  },
+  {
+    date: '2026-08-30',
+    title: "Linton's Corner Spring Race",
+    location: "Linton's Corner Shopping Centre",
+    distances: ['21.1 km', '10 km', '5 km'],
+    registrationUrl: 'https://www.entryninja.com/events/83243-lintons-corner',
+  },
   // Once a race is done, add resultsUrl and photo and it becomes the
   // "Latest race" highlight at the top. Example:
   // {
