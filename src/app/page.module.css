@@ -114,8 +114,10 @@
 
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
+  /* Sized so all five cards fit on one row within the 1200px container on
+     desktop, while still wrapping gracefully on narrower screens. */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
 }
 
 .card {
