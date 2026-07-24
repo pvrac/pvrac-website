@@ -58,7 +58,7 @@ export default function HomePage() {
             </div>
             <div className={styles.trainingCard}>
               <strong>Saturday Mornings</strong>
-              06:00 | Long Runs &amp; Social Km&apos;s
+              07:00 | Long Runs &amp; Social Km&apos;s
               <span>Meet at Abantu Coffee, Pierre van Ryneveld</span>
             </div>
             <div className={styles.trainingCard}>
@@ -91,6 +91,11 @@ export default function HomePage() {
               <div className={styles.cardIcon}>📸</div>
               <h3>Gallery</h3>
               <p>Photos from club runs, races and social events.</p>
+            </Link>
+            <Link href="/calendar" className={styles.card}>
+              <div className={styles.cardIcon}>📅</div>
+              <h3>Calendar</h3>
+              <p>Upcoming races and club events, plus results from recent races.</p>
             </Link>
             <Link href="/contact" className={styles.card}>
               <div className={styles.cardIcon}>✉️</div>

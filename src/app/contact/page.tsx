@@ -46,7 +46,7 @@ export default function ContactPage() {
                 <span className={styles.icon}>💬</span>
                 <div>
                   <strong>WhatsApp Groups</strong>
-                  Chatterbox • Runners Info
+                  Chatterbox • Runners Info • 
                   <br />
                   Club Announcements • Cycling
                   <br />
