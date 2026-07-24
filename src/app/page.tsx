@@ -78,12 +78,12 @@ export default function HomePage() {
           <h2 className="section-title">Explore The Club</h2>
           <div className={styles.cardGrid}>
             <Link href="/membership" className={styles.card}>
-              <div className={styles.cardIcon}>🎽</div>
+              <div className={styles.cardIcon}>📋</div>
               <h3>Membership</h3>
               <p>Pricing, how to join, and forms to download. Become a member today.</p>
             </Link>
             <Link href="/club-kit" className={styles.card}>
-              <div className={styles.cardIcon}>👕</div>
+              <div className={styles.cardIcon}>🎽</div>
               <h3>Club Kit</h3>
               <p>Vests and tees to represent PVRAC in style, on and off the road.</p>
             </Link>
