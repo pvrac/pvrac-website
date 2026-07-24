@@ -21,9 +21,6 @@ export default function HomePage() {
             <Link href="/membership" className="cta-button">
               Join Our Club
             </Link>
-            <Link href="/about" className="cta-button secondary">
-              Learn More
-            </Link>
           </div>
         </div>
       </section>
