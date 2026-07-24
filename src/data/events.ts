@@ -1,0 +1,79 @@
+// ---------------------------------------------------------------------------
+// PVRAC race & event calendar
+// ---------------------------------------------------------------------------
+// This is the ONLY file you edit to update the Calendar page.
+//
+// TO ADD AN EVENT:
+//   1. Copy one of the blocks in the list below.
+//   2. Paste it into the list and fill in the fields.
+//   3. Save, commit and push. That's it.
+//
+// You do NOT need to remove old races — once a race date has passed it drops
+// off the upcoming list automatically. When you add a `resultsUrl` and/or a
+// `photo` to a race that has already happened, it becomes the "Latest race"
+// highlight at the top of the page.
+//
+// FIELDS  (only `date` and `title` are required — leave the rest out if unused):
+//   date             'YYYY-MM-DD'  e.g. '2026-08-15'   (required)
+//   title            Race / event name                 (required)
+//   location         Where it is
+//   distances        e.g. ['42.2 km', '21.1 km', '10 km']
+//   registrationUrl  Link to enter (shown for upcoming races)
+//   resultsUrl       Link to results (add after the race)
+//   photo            '/images/races/your-photo.jpg' (add after the race)
+//   note             One short extra line
+// ---------------------------------------------------------------------------
+
+export type ClubEvent = {
+  date: string;
+  title: string;
+  location?: string;
+  distances?: string[];
+  registrationUrl?: string;
+  resultsUrl?: string;
+  photo?: string;
+  note?: string;
+};
+
+export const EVENTS: ClubEvent[] = [
+  // ===== EXAMPLES — replace these with your real races before going live =====
+  {
+    date: '2026-08-09',
+    title: 'Example City Marathon',
+    location: 'Pretoria',
+    distances: ['42.2 km', '21.1 km', '10 km'],
+    // registrationUrl: 'https://enter.example.com/city-marathon',
+  },
+  {
+    date: '2026-08-23',
+    title: 'Example Club Championship',
+    location: 'Pierre van Ryneveld',
+    distances: ['10 km', '5 km'],
+    note: 'Club colours day — wear your PVRAC kit!',
+  },
+  {
+    date: '2026-09-06',
+    title: 'Example Trail Run',
+    location: 'Centurion',
+    distances: ['15 km', '8 km'],
+  },
+  {
+    date: '2026-07-04',
+    title: 'Garsfontein Ice Breaker',
+    location: 'Pretoria',
+    distances: [, '21.1 km', '10 km','5 km'],
+    resultsUrl: 'https://results.finishtime.co.za/results.aspx?CId=35&RId=5829',
+	photo: '/images/races/icebreaker.jpeg',
+  },
+
+  // Once a race is done, add resultsUrl and photo and it becomes the
+  // "Latest race" highlight at the top. Example:
+  // {
+  //   date: '2026-07-12',
+  //   title: 'Winter Half Marathon',
+  //   location: 'Centurion',
+  //   distances: ['21.1 km', '10 km'],
+  //   resultsUrl: 'https://results.example.com/winter-half-2026',
+  //   photo: '/images/races/winter-half-2026.jpg',
+  // },
+];

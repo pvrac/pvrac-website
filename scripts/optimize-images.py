@@ -1,16 +1,18 @@
-"""Resize and compress new gallery photos for the website.
+"""Resize and compress website photos (gallery + race photos).
 
-Full-resolution phone photos (5-10 MB each) make the gallery slow to load.
-This shrinks every image in public/images/gallery to a sensible max width and
-re-saves it as an optimized JPEG, so you can just dump raw photos in and run
-this once before committing.
+Full-resolution phone photos (5-10 MB each) make pages slow to load. This
+shrinks every image in the target folders under public/images to a sensible
+max width and re-saves it as an optimized JPEG, so you can just dump raw photos
+into a folder and run this once before committing.
 
 Usage (from the project root):
 
-    python scripts/optimize-gallery.py
+    python scripts/optimize-images.py           # optimizes gallery AND races
+    python scripts/optimize-images.py races     # just one folder
+    python scripts/optimize-images.py gallery races
 
-It edits the files in place. Images already small enough are left alone.
-Requires Pillow:  pip install pillow
+It edits files in place. Images already small enough are left untouched, so it
+is safe to re-run. Requires Pillow:  pip install pillow
 """
 import io
 import os
@@ -21,13 +23,13 @@ try:
 except ImportError:
     sys.exit("Pillow is not installed. Run:  pip install pillow")
 
-MAX_WIDTH = 1600          # widest a gallery photo needs to be on screen
+MAX_WIDTH = 1600          # widest a photo needs to be on screen
 JPEG_QUALITY = 82         # visually lossless-ish, much smaller files
-GALLERY_DIR = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    "public", "images", "gallery",
-)
 EXTS = {".jpg", ".jpeg", ".png", ".webp"}
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+IMAGES_ROOT = os.path.join(PROJECT_ROOT, "public", "images")
+DEFAULT_FOLDERS = ["gallery", "races"]
 
 
 def optimize(path: str) -> str:
@@ -44,7 +46,7 @@ def optimize(path: str) -> str:
         new_h = round(im.height * MAX_WIDTH / im.width)
         im = im.resize((MAX_WIDTH, new_h), Image.LANCZOS)
 
-    rgb = im.convert("RGB")  # flatten any alpha; gallery output is JPEG
+    rgb = im.convert("RGB")  # flatten any alpha; output is JPEG
     buf = io.BytesIO()
     rgb.save(buf, "JPEG", quality=JPEG_QUALITY, optimize=True, progressive=True)
     after = buf.getbuffer().nbytes
@@ -67,22 +69,30 @@ def optimize(path: str) -> str:
     return f"  {os.path.basename(path):40} {before // 1024:>5} KB -> {after // 1024:>5} KB  ({tag})"
 
 
-def main() -> None:
-    if not os.path.isdir(GALLERY_DIR):
-        sys.exit(f"Gallery folder not found: {GALLERY_DIR}")
+def optimize_folder(name: str) -> None:
+    folder = os.path.join(IMAGES_ROOT, name)
+    if not os.path.isdir(folder):
+        print(f"(skipping '{name}' — public/images/{name} not found)")
+        return
 
     files = [
         f
-        for f in sorted(os.listdir(GALLERY_DIR))
+        for f in sorted(os.listdir(folder))
         if os.path.splitext(f)[1].lower() in EXTS
     ]
     if not files:
-        print("No images found in", GALLERY_DIR)
+        print(f"No images found in public/images/{name}")
         return
 
-    print(f"Optimizing {len(files)} image(s) in public/images/gallery ...")
+    print(f"Optimizing {len(files)} image(s) in public/images/{name} ...")
     for f in files:
-        print(optimize(os.path.join(GALLERY_DIR, f)))
+        print(optimize(os.path.join(folder, f)))
+
+
+def main() -> None:
+    folders = sys.argv[1:] or DEFAULT_FOLDERS
+    for name in folders:
+        optimize_folder(name)
     print("Done. Review the photos, then commit and push.")
 
 

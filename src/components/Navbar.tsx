@@ -10,6 +10,7 @@ import styles from './Navbar.module.css';
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
+  { href: '/calendar', label: 'Calendar' },
   { href: '/membership', label: 'Membership' },
   { href: '/club-kit', label: 'Club Kit' },
   { href: '/gallery', label: 'Gallery' },

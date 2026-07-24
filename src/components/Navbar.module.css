@@ -19,7 +19,7 @@
   height: var(--header-height);
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
 }
 
 .logoLink {
@@ -27,7 +27,10 @@
   align-items: center;
   gap: 16px;
   text-decoration: none;
-  flex-shrink: 0;
+  /* Shrinkable so the title wraps to 2 lines when the nav needs the room,
+     keeping all links visible on laptops (and the hamburger on phones). */
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .logoLink img {
@@ -55,7 +58,7 @@
 
 .navLink {
   display: inline-block;
-  padding: 10px 18px;
+  padding: 10px 13px;
   color: var(--white);
   text-decoration: none;
   font-weight: 600;
@@ -109,16 +112,11 @@
   transform: translateY(-8px) rotate(-45deg);
 }
 
-@media (max-width: 900px) {
+/* Below this width the 7-item horizontal nav would crush the club name into
+   too many lines, so switch to the hamburger menu instead. */
+@media (max-width: 1100px) {
   .bar {
     padding: 0 19px;
-  }
-
-  /* Let the logo+title shrink and the title wrap so the hamburger button is
-     never pushed off the right edge on narrow phones (e.g. 360px Samsungs). */
-  .logoLink {
-    flex-shrink: 1;
-    min-width: 0;
   }
 
   .titleText {

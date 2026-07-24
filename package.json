@@ -7,7 +7,7 @@
     "build": "next build",
     "lint": "next lint",
     "preview": "npx serve@latest out",
-    "optimize-gallery": "python scripts/optimize-gallery.py"
+    "optimize-images": "python scripts/optimize-images.py"
   },
   "dependencies": {
     "next": "14.2.5",

@@ -1,0 +1,263 @@
+.calendar {
+  background: rgba(255, 255, 255, 0.93);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.empty {
+  text-align: center;
+  color: #666;
+  font-size: 1.15rem;
+  padding: 3rem 1rem;
+}
+
+/* --- Latest race recap --- */
+.recap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: stretch;
+  background: linear-gradient(135deg, var(--navy), var(--dark-blue));
+  color: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 119, 182, 0.3);
+  margin-bottom: 3.5rem;
+}
+
+.recapNoPhoto {
+  grid-template-columns: 1fr;
+}
+
+.recapPhoto {
+  position: relative;
+  min-height: 260px;
+}
+
+.recapPhoto img {
+  object-fit: cover;
+}
+
+.recapBody {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recapLabel {
+  color: var(--gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.recapTitle {
+  font-size: 2rem;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.recapMeta {
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.resultsBtn {
+  align-self: flex-start;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resultsBtn:hover,
+.resultsBtn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 214, 10, 0.4);
+  outline: none;
+}
+
+/* --- Month groups --- */
+.monthGroup {
+  margin-bottom: 2.5rem;
+}
+
+.monthHeading {
+  display: inline-block;
+  font-size: 1.75rem;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--gold);
+}
+
+.eventList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* --- Event card --- */
+.eventCard {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 2px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.eventCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 30px rgba(0, 119, 182, 0.15);
+}
+
+.dateBadge {
+  flex-shrink: 0;
+  width: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--navy), var(--dark-blue));
+  color: var(--white);
+  border-radius: 12px;
+  padding: 0.6rem 0;
+}
+
+.dateDay {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.dateMonth {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin-top: 0.15rem;
+}
+
+.eventInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.eventTitle {
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.eventLoc {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chip {
+  background: var(--light-gray);
+  color: var(--dark-blue);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+}
+
+.eventNote {
+  color: #777;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 0.6rem;
+}
+
+.eventActions {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.btnPrimary,
+.btnGhost {
+  text-align: center;
+  padding: 0.55rem 1.4rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btnPrimary {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.btnPrimary:hover,
+.btnPrimary:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 214, 10, 0.4);
+  outline: none;
+}
+
+.btnGhost {
+  background: transparent;
+  color: var(--dark-blue);
+  border: 2px solid var(--dark-blue);
+}
+
+.btnGhost:hover,
+.btnGhost:focus-visible {
+  background: var(--dark-blue);
+  color: var(--white);
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .recap {
+    grid-template-columns: 1fr;
+  }
+
+  .recapPhoto {
+    min-height: 200px;
+  }
+
+  .recapBody {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Date badge + info stay in a row; action buttons wrap to a full-width row */
+  .eventCard {
+    flex-wrap: wrap;
+  }
+
+  .eventActions {
+    flex-direction: row;
+    flex-basis: 100%;
+  }
+
+  .btnPrimary,
+  .btnGhost {
+    flex: 1;
+  }
+}
