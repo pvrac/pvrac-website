@@ -40,6 +40,7 @@
 
 .contactDetail div {
   flex: 1;
+  min-width: 0;
 }
 
 .contactDetail strong {
@@ -52,6 +53,7 @@
 .contactDetail a {
   color: var(--navy);
   text-decoration: none;
+  overflow-wrap: break-word;
 }
 
 .contactDetail a:hover {
@@ -157,7 +159,9 @@
 
 @media (max-width: 768px) {
   .contactContent {
-    grid-template-columns: 1fr;
+    /* minmax(0, 1fr) lets the column shrink below its content's intrinsic
+       width, so a long unbreakable email can't force horizontal overflow. */
+    grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
   }
 }

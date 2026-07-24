@@ -114,6 +114,17 @@
     padding: 0 19px;
   }
 
+  /* Let the logo+title shrink and the title wrap so the hamburger button is
+     never pushed off the right edge on narrow phones (e.g. 360px Samsungs). */
+  .logoLink {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .titleText {
+    min-width: 0;
+  }
+
   .logoLink img {
     height: 48px;
     width: auto;
