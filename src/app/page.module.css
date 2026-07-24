@@ -22,7 +22,7 @@
   /* background-image is set inline in page.tsx so the deploy basePath can be
      applied: CSS url() is NOT rewritten for GitHub Pages subpath deploys.
      The 64% vertical position is the crop knob. */
-  background-position: center 64%;
+  background-position: center 56%;
   background-size: cover;
   background-repeat: no-repeat;
 }
