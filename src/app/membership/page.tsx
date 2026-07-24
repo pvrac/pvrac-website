@@ -5,13 +5,13 @@ import styles from './page.module.css';
 
 export const metadata: Metadata = {
   title: 'Membership | Pierre van Ryneveld Athletics Club',
-  description: 'PVRAC membership pricing, how to join, and downloadable forms.',
+  description: 'PVR AC membership pricing, how to join, and downloadable forms.',
 };
 
 export default function MembershipPage() {
   return (
     <>
-      <PageBanner title="Join Our Community" subtitle="Become Part Of The PVRAC Family" />
+      <PageBanner title="Join Our Community" subtitle="Become Part Of The PVR AC Family" />
 
       <section className={styles.membership}>
         <div className="container">
@@ -21,7 +21,7 @@ export default function MembershipPage() {
             <div className={styles.pricingCard}>
               <h3>Senior Membership</h3>
               <div className={styles.price}>
-                R580 <span className={styles.priceUnit}>per annum</span>
+                R580 <span className={styles.priceUnit}>p.a.</span>
               </div>
               <div className={styles.priceBreakdown}>
                 <div>Club Fee: R350</div>
@@ -36,7 +36,7 @@ export default function MembershipPage() {
             <div className={styles.pricingCard}>
               <h3>Junior Membership</h3>
               <div className={styles.price}>
-                R480 <span className={styles.priceUnit}>per annum</span>
+                R480 <span className={styles.priceUnit}>p.a.</span>
               </div>
               <div className={styles.priceBreakdown}>
                 <div>Club Fee: R350</div>
@@ -51,7 +51,7 @@ export default function MembershipPage() {
             <div className={styles.pricingCard}>
               <h3>Social Membership</h3>
               <div className={styles.price}>
-                R350 <span className={styles.priceUnit}>per annum</span>
+                R350 <span className={styles.priceUnit}>p.a.</span>
               </div>
               <div className={styles.priceBreakdown}>
                 <div>Club Fee Only</div>
