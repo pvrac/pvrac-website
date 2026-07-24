@@ -234,4 +234,15 @@
   .formsGrid {
     grid-template-columns: 1fr;
   }
+
+  /* Stack every banking row as label-above-value so short values (bank name,
+     branch code) don't sit beside their heading while long ones wrap below. */
+  .bankList > div {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .bankList dt {
+    min-width: 0;
+  }
 }
