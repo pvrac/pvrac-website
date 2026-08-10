@@ -87,6 +87,48 @@ export const EVENTS: ClubEvent[] = [
     distances: ['21.1 km', '10 km', '5 km'],
     registrationUrl: 'https://www.entryninja.com/events/83243-lintons-corner',
   },
+  {
+    date: '2026-09-09',
+    title: "Sappi Tuks night race",
+    location: "Hillcrest Sports Campus",
+    distances: ['10 km', '5 km'],
+    registrationUrl: 'https://www.entryninja.com/events/83963-sappi-tuks-night-race',
+  },
+  {
+    date: '2026-09-05',
+    title: "Brooklyn Road Race 2026",
+    location: "Brooklyn Mall",
+    distances: ['33 km', '21.1 km', '10 km', '5 km'],
+    registrationUrl: 'https://www.entryninja.com/events/83841-brooklyn-race',
+  },
+   {
+    date: '2026-09-13',
+    title: "Kit Kat Marathon 2026",
+    location: "Pretoria",
+    distances: ['42.2 km', '21.1 km', '10 km', '5 km'],
+    registrationUrl: 'https://entrygeek.co.za/events/kit-kat-marathon-2026/',
+  },  
+   {
+    date: '2026-09-19',
+    title: "Exxaro Road Race Challenge 2026",
+    location: "SuperSport Park",
+    distances: ['21.1 km', '10 km', '5 km'],
+    registrationUrl: 'https://secure.onreg.com/onreg2/front/step1.php?id=7905',
+  }, 
+   {
+    date: '2026-09-12',
+    title: "Spirit of Flight 2026",
+    location: "AFB Swartkop",
+    distances: ['10 km', '5 km'],
+    registrationUrl: 'https://www.entryninja.com/events/84191-spirit-of-flight',
+  }, 
+  {
+    date: '2026-11-14',
+    title: "Tom Jenkins Challenge 2026",
+    location: "Union Buildings",
+    distances: ['21.1 km','10 km', '5 km'],
+    registrationUrl: 'https://www.entryninja.com/events/84284-tom-jenkins-challenge',
+  }, 
   // Once a race is done, add resultsUrl and photo and it becomes the
   // "Latest race" highlight at the top. Example:
   // {
