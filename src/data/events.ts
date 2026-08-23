@@ -64,7 +64,7 @@ export const EVENTS: ClubEvent[] = [
     location: 'Pretoria',
     distances: ['21.1 km', '10 km', '5 km'],
     resultsUrl: 'https://results.finishtime.co.za/results.aspx?CId=35&RId=5829',
-    photo: '/images/races/icebreaker.jpeg',
+    photo: '/images/races/icebreaker.webp',
   },
 {
     date: '2026-08-26',

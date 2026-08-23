@@ -2,8 +2,12 @@
 
 Full-resolution phone photos (5-10 MB each) make pages slow to load. This
 shrinks every image in the target folders under public/images to a sensible
-max width and re-saves it as an optimized JPEG, so you can just dump raw photos
-into a folder and run this once before committing.
+max dimension and re-saves it as an optimized WebP, so you can just dump raw
+photos into a folder and run this once before committing.
+
+WebP at quality ~84 looks visually close to the original at 25-35% smaller
+than an equivalent-quality JPEG, so we get noticeably better quality than a
+straight JPEG re-encode at the same file size.
 
 Usage (from the project root):
 
@@ -11,8 +15,17 @@ Usage (from the project root):
     python scripts/optimize-images.py races     # just one folder
     python scripts/optimize-images.py gallery races
 
-It edits files in place. Images already small enough are left untouched, so it
-is safe to re-run. Requires Pillow:  pip install pillow
+It edits files in place and always outputs .webp, converting .jpg/.jpeg/.png
+originals (the old file is deleted). Images already small enough are left
+untouched, so it is safe to re-run.
+
+NOTE: race photos are linked by exact filename in src/data/events.ts (e.g.
+'/images/races/icebreaker.jpeg'). If you optimize a new race photo, update
+that path's extension to .webp too. Gallery photos don't need this — the
+gallery page reads whatever files are in public/images/gallery at build time.
+
+Requires Pillow with WebP support (the standard `pip install pillow` wheel
+has it):  pip install pillow
 """
 import io
 import os
@@ -23,8 +36,8 @@ try:
 except ImportError:
     sys.exit("Pillow is not installed. Run:  pip install pillow")
 
-MAX_WIDTH = 1600          # widest a photo needs to be on screen
-JPEG_QUALITY = 82         # visually lossless-ish, much smaller files
+MAX_DIMENSION = 2000      # longest edge a photo needs on screen
+WEBP_QUALITY = 84         # sweet spot: visually close to source, much smaller
 EXTS = {".jpg", ".jpeg", ".png", ".webp"}
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,29 +52,31 @@ def optimize(path: str) -> str:
 
     before = os.path.getsize(path)
     root, ext = os.path.splitext(path)
-    is_jpeg = ext.lower() in (".jpg", ".jpeg")
+    is_webp = ext.lower() == ".webp"
 
-    resized = im.width > MAX_WIDTH
+    longest = max(im.width, im.height)
+    resized = longest > MAX_DIMENSION
     if resized:
-        new_h = round(im.height * MAX_WIDTH / im.width)
-        im = im.resize((MAX_WIDTH, new_h), Image.LANCZOS)
+        scale = MAX_DIMENSION / longest
+        new_size = (round(im.width * scale), round(im.height * scale))
+        im = im.resize(new_size, Image.LANCZOS)
 
-    rgb = im.convert("RGB")  # flatten any alpha; output is JPEG
+    rgb = im.convert("RGB")  # flatten any alpha; these are photos, not icons
     buf = io.BytesIO()
-    rgb.save(buf, "JPEG", quality=JPEG_QUALITY, optimize=True, progressive=True)
+    rgb.save(buf, "WEBP", quality=WEBP_QUALITY, method=6)
     after = buf.getbuffer().nbytes
 
-    # For an already-JPEG file we didn't resize, only overwrite if it's smaller —
-    # re-encoding an already-optimized photo can inflate it (and slowly degrade
-    # quality on repeat runs). Nothing to gain there, so leave it untouched.
-    if is_jpeg and not resized and after >= before:
+    # For an already-WebP file we didn't resize, only overwrite if it's
+    # smaller — re-encoding an already-optimized photo can inflate it (and
+    # slowly degrade quality on repeat runs). Nothing to gain there.
+    if is_webp and not resized and after >= before:
         return f"  {os.path.basename(path):40} {before // 1024:>5} KB  (already optimized, skipped)"
 
-    out_path = path if is_jpeg else root + ".jpg"
+    out_path = root + ".webp"
     with open(out_path, "wb") as fh:
         fh.write(buf.getvalue())
 
-    # If we converted (e.g. .png -> .jpg), remove the original file.
+    # If we converted format (e.g. .jpg -> .webp), remove the original file.
     if out_path != path:
         os.remove(path)
 
