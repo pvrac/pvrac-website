@@ -20,7 +20,7 @@ export default function MembershipPage() {
           <div className={styles.special}>
             <span className={styles.specialFlag}>🔥 Limited Time Offer</span>
             <h3 className={styles.specialTitle}>
-              Pay <span className={styles.specialAmount}>R500</span> now &dash; covered until the
+              Pay <span className={styles.specialAmount}>R500</span> now - covered until the
               end of 2027
             </h3>
             <p className={styles.specialLead}>

@@ -30,7 +30,7 @@ export default function HomePage() {
           <div className={styles.specialStripText}>
             <span className={styles.specialStripFlag}>🔥 2026 Joining Special</span>
             <p className={styles.specialStripHeadline}>
-              Pay <strong>R500</strong> club fee now &dash; get the rest of 2026 <em>and</em> all
+              Pay <strong>R500</strong> club fee now - get the rest of 2026 <em>and</em> all
               of 2027.
             </p>
             <p className={styles.specialStripNote}>Excludes the R230 ASA license fee.</p>
@@ -94,7 +94,7 @@ export default function HomePage() {
             <div className={styles.trainingGrid}>
               <div className={`${styles.trainingCard} ${styles.trainingCardCycling}`}>
                 <strong>Tuesdays &amp; Thursdays</strong>
-                17:30 | Easy 10&dash;12 km around PvR
+                17:30 | Easy 10-12 km around PvR
                 <span>From the Church, Baltimore Street &middot; Winter start 17:15</span>
               </div>
               <div className={`${styles.trainingCard} ${styles.trainingCardCycling}`}>
@@ -111,7 +111,7 @@ export default function HomePage() {
               <div className={`${styles.trainingCard} ${styles.trainingCardCycling}`}>
                 <strong>🛡️ No-Drop Rides</strong>
                 Road bikes and MTBs equally welcome
-                <span>Safe, social riding &dash; nobody gets left behind.</span>
+                <span>Safe, social riding - nobody gets left behind.</span>
               </div>
             </div>
           </div>
