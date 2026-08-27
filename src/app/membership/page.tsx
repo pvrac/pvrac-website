@@ -17,6 +17,36 @@ export default function MembershipPage() {
         <div className="container">
           <h2 className="section-title on-dark">Membership Pricing</h2>
 
+          <div className={styles.special}>
+            <span className={styles.specialFlag}>🔥 Limited Time Offer</span>
+            <h3 className={styles.specialTitle}>
+              Pay <span className={styles.specialAmount}>R500</span> now &dash; covered until the
+              end of 2027
+            </h3>
+            <p className={styles.specialLead}>
+              Join for the rest of 2026 and get the <strong>whole of 2027</strong> included. One
+              club fee, more than a year of running, walking and riding with PVR AC.
+            </p>
+            <ul className={styles.specialPoints}>
+              <li>
+                <strong>R500</strong>
+                <span>Once-off club fee</span>
+              </li>
+              <li>
+                <strong>Rest of 2026 + all of 2027</strong>
+                <span>Two seasons, one payment</span>
+              </li>
+              <li>
+                <strong>Save R200</strong>
+                <span>vs. R350 club fee for each year</span>
+              </li>
+            </ul>
+            <p className={styles.specialFinePrint}>
+              ⚠️ Excludes the R230 ASA license fee, which is payable separately for competitive
+              members. Offer applies to the club fee only.
+            </p>
+          </div>
+
           <div className={styles.membershipGrid}>
             <div className={styles.pricingCard}>
               <h3>Senior Membership</h3>
