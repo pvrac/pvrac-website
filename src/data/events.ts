@@ -56,7 +56,8 @@ export const EVENTS: ClubEvent[] = [
     title: 'ABSA Run Your City Tshwane',
     location: 'Union Buildings',
     distances: ['10 km'],
-	note: 'SOLD OUT',
+	  resultsUrl: 'https://live.ultimate.dk/desktop/front/index.php?eventid=7689',
+    photo:'/images/races/ABSA_Tshwane.webp'
   },
   {
     date: '2026-07-04',

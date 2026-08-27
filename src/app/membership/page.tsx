@@ -37,8 +37,8 @@ export default function MembershipPage() {
                 <span>Two seasons, one payment</span>
               </li>
               <li>
-                <strong>Save R200</strong>
-                <span>vs. R350 club fee for each year</span>
+                <strong>Save R150</strong>
+                <span>vs. R300 club fee for each year</span>
               </li>
             </ul>
             <p className={styles.specialFinePrint}>
@@ -54,7 +54,7 @@ export default function MembershipPage() {
                 R580 <span className={styles.priceUnit}>p.a.</span>
               </div>
               <div className={styles.priceBreakdown}>
-                <div>Club Fee: R350</div>
+                <div>Club Fee: R300</div>
                 <div>ASA License: R230</div>
               </div>
               <p>
@@ -69,7 +69,7 @@ export default function MembershipPage() {
                 R480 <span className={styles.priceUnit}>p.a.</span>
               </div>
               <div className={styles.priceBreakdown}>
-                <div>Club Fee: R350</div>
+                <div>Club Fee: R300</div>
                 <div>ASA License: R130</div>
               </div>
               <p>
@@ -81,7 +81,7 @@ export default function MembershipPage() {
             <div className={styles.pricingCard}>
               <h3>Social Membership</h3>
               <div className={styles.price}>
-                R350 <span className={styles.priceUnit}>p.a.</span>
+                R300 <span className={styles.priceUnit}>p.a.</span>
               </div>
               <div className={styles.priceBreakdown}>
                 <div>Club Fee Only</div>
