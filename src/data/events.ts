@@ -90,7 +90,7 @@ export const EVENTS: ClubEvent[] = [
   },
   {
     date: '2026-09-09',
-    title: "Sappi Tuks night race",
+    title: "Sappi Tuks Night Race",
     location: "Hillcrest Sports Campus",
     distances: ['10 km', '5 km'],
     registrationUrl: 'https://www.entryninja.com/events/83963-sappi-tuks-night-race',

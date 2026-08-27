@@ -51,7 +51,7 @@ export default function MembershipPage() {
             <div className={styles.pricingCard}>
               <h3>Senior Membership</h3>
               <div className={styles.price}>
-                R580 <span className={styles.priceUnit}>p.a.</span>
+                R530 <span className={styles.priceUnit}>p.a.</span>
               </div>
               <div className={styles.priceBreakdown}>
                 <div>Club Fee: R300</div>
@@ -66,7 +66,7 @@ export default function MembershipPage() {
             <div className={styles.pricingCard}>
               <h3>Junior Membership</h3>
               <div className={styles.price}>
-                R480 <span className={styles.priceUnit}>p.a.</span>
+                R430 <span className={styles.priceUnit}>p.a.</span>
               </div>
               <div className={styles.priceBreakdown}>
                 <div>Club Fee: R300</div>
