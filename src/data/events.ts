@@ -100,7 +100,8 @@ export const EVENTS: ClubEvent[] = [
     title: "Brooklyn Road Race 2026",
     location: "Brooklyn Mall",
     distances: ['33 km', '21.1 km', '10 km', '5 km'],
-    registrationUrl: 'https://www.entryninja.com/events/83841-brooklyn-race',
+    resultsUrl: 'https://results.finishtime.co.za/results.aspx?CId=35&RId=5946',
+    photo: '/images/races/Brooklyn.webp',
   },
    {
     date: '2026-09-13',
@@ -129,6 +130,34 @@ export const EVENTS: ClubEvent[] = [
     location: "Union Buildings",
     distances: ['21.1 km','10 km', '5 km'],
     registrationUrl: 'https://www.entryninja.com/events/84284-tom-jenkins-challenge',
+  }, 
+    {
+    date: '2026-10-3',
+    title: "Chamberlain Capital Classic 2026",
+    location: "PHSOB CLUB",
+    distances: ['21.1 km','10 km', '5 km'],
+    registrationUrl: 'https://www.entryninja.com/events/84258',
+  }, 
+   {
+    date: '2026-10-17',
+    title: "CSIR Road Race 2026",
+    location: "CSIR Main Campus",
+    distances: ['21.1 km','10 km', '5 km'],
+    registrationUrl: 'https://www.entryninja.com/events/83742-csir-2026',
+  }, 
+  {
+    date: '2026-10-24',
+    title: "aQuelle Jacaranda City Challenge 2026",
+    location: "Rietondale High School",
+    distances: ['42.2km','21.1 km','10 km', '5 km'],
+    registrationUrl: 'https://www.entryninja.com/events/84195-jacaranda-city-challenge',
+  }, 
+  {
+    date: '2026-10-31',
+    title: "Irene Farm Race with Discovery Vitality 2026",
+    location: "ARC Campus",
+    distances: ['21.1 km','10 km', '5 km'],
+    registrationUrl: 'https://www.entryninja.com/events/84315-irene-farm-race/',
   }, 
   // Once a race is done, add resultsUrl and photo and it becomes the
   // "Latest race" highlight at the top. Example:
