@@ -132,7 +132,7 @@ export const EVENTS: ClubEvent[] = [
     registrationUrl: 'https://www.entryninja.com/events/84284-tom-jenkins-challenge',
   }, 
     {
-    date: '2026-10-3',
+    date: '2026-10-03',
     title: "Chamberlain Capital Classic 2026",
     location: "PHSOB CLUB",
     distances: ['21.1 km','10 km', '5 km'],

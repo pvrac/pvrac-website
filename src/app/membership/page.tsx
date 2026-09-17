@@ -95,7 +95,7 @@ export default function MembershipPage() {
           </div>
 
           <div className={styles.joiningProcess}>
-            <h3>How to Join</h3>
+            <h3>How to Join (Step 1 and 2 for licensed runners only)</h3>
             <ul className={styles.processSteps}>
               <li data-step="1">
                 Register on the{' '}
