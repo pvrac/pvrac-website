@@ -115,7 +115,8 @@ export const EVENTS: ClubEvent[] = [
     title: "Exxaro Road Race Challenge 2026",
     location: "SuperSport Park",
     distances: ['21.1 km', '10 km', '5 km'],
-    registrationUrl: 'https://secure.onreg.com/onreg2/front/step1.php?id=7905',
+    resultsUrl: 'https://live.ultimate.dk/desktop/front/index.php?eventid=7905',
+    photo: '/images/races/Exxaro.webp',
   }, 
    {
     date: '2026-09-12',
