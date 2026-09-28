@@ -73,7 +73,7 @@ function RunWalkContent() {
             </li>
             <li>
               <strong>Saturday Mornings</strong>
-              06:30 | Long Runs &amp; Social Km&apos;s
+              06:00 | Long Runs &amp; Social Km&apos;s
               <br />
               <small>
                 Meet at{' '}

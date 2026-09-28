@@ -76,7 +76,7 @@ export default function HomePage() {
               </div>
               <div className={styles.trainingCard}>
                 <strong>Saturday Mornings</strong>
-                06:30 | Long Runs &amp; Social Km&apos;s
+                06:00 | Long Runs &amp; Social Km&apos;s
                 <span>Meet at Abantu Coffee, Pierre van Ryneveld</span>
               </div>
               <div className={styles.trainingCard}>
