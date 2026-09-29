@@ -160,6 +160,13 @@ export const EVENTS: ClubEvent[] = [
     distances: ['21.1 km','10 km', '5 km'],
     registrationUrl: 'https://www.entryninja.com/events/84315-irene-farm-race/',
   }, 
+    {
+    date: '2026-11-07',
+    title: "Tshwane Oppie Bol",
+    location: "Defence Sports Grounds",
+    distances: ['21.1 km','10 km', '5 km','1 mile'],
+    registrationUrl: 'https://runningcalendar.co.za/events/tshwane-oppie-bol',
+  }, 
   // Once a race is done, add resultsUrl and photo and it becomes the
   // "Latest race" highlight at the top. Example:
   // {
