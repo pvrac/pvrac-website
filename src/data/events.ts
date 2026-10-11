@@ -138,7 +138,7 @@ export const EVENTS: ClubEvent[] = [
     location: "PHSOB CLUB",
     distances: ['21.1 km','10 km', '5 km'],
     resultsUrl: 'https://results.finishtime.co.za/results.aspx?CId=35&RId=8104',
-    photo: '/images/races/Exxaro.webp',
+    photo: '/images/races/Chamberlains.webp',
   }, 
    {
     date: '2026-10-17',
