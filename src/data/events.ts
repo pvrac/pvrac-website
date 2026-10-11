@@ -137,7 +137,8 @@ export const EVENTS: ClubEvent[] = [
     title: "Chamberlain Capital Classic 2026",
     location: "PHSOB CLUB",
     distances: ['21.1 km','10 km', '5 km'],
-    registrationUrl: 'https://www.entryninja.com/events/84258',
+    resultsUrl: 'https://results.finishtime.co.za/results.aspx?CId=35&RId=8104',
+    photo: '/images/races/Exxaro.webp',
   }, 
    {
     date: '2026-10-17',
