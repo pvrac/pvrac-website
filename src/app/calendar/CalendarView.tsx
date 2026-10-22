@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type KeyboardEvent } from 'react';
 import Image from 'next/image';
 import { withBasePath } from '@/lib/basePath';
 import type { ClubEvent } from '@/data/events';
@@ -38,6 +38,9 @@ function monthLabel(dateStr: string) {
   return `${MONTHS[m - 1]} ${y}`;
 }
 
+type Filter = 'all' | 'race' | 'event';
+const isEvent = (e: ClubEvent) => e.type === 'event';
+
 export default function CalendarView({
   events,
   buildDateISO,
@@ -50,10 +53,15 @@ export default function CalendarView({
   // keeping "upcoming" accurate even between deploys.
   const [todayStr, setTodayStr] = useState(() => toDateStr(new Date(buildDateISO)));
   useEffect(() => setTodayStr(toDateStr(new Date())), []);
+  const [filter, setFilter] = useState<Filter>('all');
+  const [viewing, setViewing] = useState<ClubEvent | null>(null);
 
   const sorted = [...events].sort((a, b) => a.date.localeCompare(b.date));
-  const upcoming = sorted.filter((e) => e.date >= todayStr);
-  const past = sorted.filter((e) => e.date < todayStr).reverse(); // most recent first
+  const hasEvents = sorted.some(isEvent);
+  const shown = sorted.filter((e) => filter === 'all' || (filter === 'event') === isEvent(e));
+  const upcoming = shown.filter((e) => e.date >= todayStr);
+  // "Latest race" only ever highlights races, never club events
+  const past = sorted.filter((e) => e.date < todayStr && !isEvent(e)).reverse(); // most recent first
   const recap = past.find((e) => e.photo || e.resultsUrl);
 
   const groups: { key: string; label: string; items: ClubEvent[] }[] = [];
@@ -72,9 +80,27 @@ export default function CalendarView({
       <div className="container">
         {recap && <RecapCard event={recap} />}
 
+        {hasEvents && (
+          <div className={styles.filters} role="group" aria-label="Filter calendar">
+            {(['all', 'race', 'event'] as Filter[]).map((f) => (
+              <button
+                key={f}
+                type="button"
+                className={`${styles.filterBtn} ${filter === f ? styles.filterActive : ''}`}
+                aria-pressed={filter === f}
+                onClick={() => setFilter(f)}
+              >
+                {f === 'all' ? 'All' : f === 'race' ? 'Races' : 'Club Events'}
+              </button>
+            ))}
+          </div>
+        )}
+
         {groups.length === 0 ? (
           <p className={styles.empty}>
-            No upcoming races listed right now — check back soon!
+            {filter === 'event'
+              ? 'No upcoming club events listed right now — check back soon!'
+              : 'No upcoming races listed right now — check back soon!'}
           </p>
         ) : (
           groups.map((group) => (
@@ -82,14 +108,69 @@ export default function CalendarView({
               <h2 className={styles.monthHeading}>{group.label}</h2>
               <div className={styles.eventList}>
                 {group.items.map((event, i) => (
-                  <EventCard key={`${event.date}-${event.title}-${i}`} event={event} />
+                  <EventCard
+                    key={`${event.date}-${event.title}-${i}`}
+                    event={event}
+                    onOpen={() => setViewing(event)}
+                  />
                 ))}
               </div>
             </div>
           ))
         )}
       </div>
+      {viewing && <PhotoModal event={viewing} onClose={() => setViewing(null)} />}
     </section>
+  );
+}
+
+function PhotoModal({ event, onClose }: { event: ClubEvent; onClose: () => void }) {
+  // Close on Escape and stop the page behind from scrolling while open
+  useEffect(() => {
+    const onKey = (e: globalThis.KeyboardEvent) => e.key === 'Escape' && onClose();
+    document.addEventListener('keydown', onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [onClose]);
+
+  return (
+    <div className={styles.modalBackdrop} onClick={onClose}>
+      <div
+        className={styles.modal}
+        role="dialog"
+        aria-modal="true"
+        aria-label={event.title}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button type="button" className={styles.modalClose} onClick={onClose} aria-label="Close">
+          ×
+        </button>
+        {event.photo && (
+          <div className={styles.modalImageWrap}>
+            <Image
+              src={withBasePath(event.photo)}
+              alt={event.title}
+              width={1600}
+              height={1200}
+              sizes="90vw"
+              className={styles.modalImage}
+            />
+          </div>
+        )}
+        <div className={styles.modalCaption}>
+          <h3 className={styles.modalTitle}>{event.title}</h3>
+          <p className={styles.modalMeta}>
+            {longDate(event.date)}
+            {event.location ? ` · ${event.location}` : ''}
+          </p>
+          {event.description && <p className={styles.modalDesc}>{event.description}</p>}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -123,18 +204,39 @@ function RecapCard({ event }: { event: ClubEvent }) {
   );
 }
 
-function EventCard({ event }: { event: ClubEvent }) {
+function EventCard({ event, onOpen }: { event: ClubEvent; onOpen: () => void }) {
   const { d, m } = parts(event.date);
+  const club = isEvent(event);
+  const clickable = club && !!event.photo;
+  const onKey = (e: KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onOpen();
+    }
+  };
   return (
-    <div className={styles.eventCard}>
+    <div
+      className={`${styles.eventCard} ${club ? styles.clubEvent : ''} ${clickable ? styles.clickable : ''}`}
+      {...(clickable && {
+        role: 'button',
+        tabIndex: 0,
+        'aria-label': `${event.title} - view photo`,
+        onClick: onOpen,
+        onKeyDown: onKey,
+      })}
+    >
       <div className={styles.dateBadge} aria-hidden="true">
         <span className={styles.dateDay}>{d}</span>
         <span className={styles.dateMonth}>{MONTHS_SHORT[m - 1]}</span>
       </div>
 
       <div className={styles.eventInfo}>
-        <h3 className={styles.eventTitle}>{event.title}</h3>
+        <h3 className={styles.eventTitle}>
+          {club && <span className={styles.eventTag}>Club Event</span>}
+          {event.title}
+        </h3>
         {event.location && <p className={styles.eventLoc}>📍 {event.location}</p>}
+        {event.description && <p className={styles.eventDesc}>{event.description}</p>}
         {event.distances && event.distances.length > 0 && (
           <div className={styles.chips}>
             {event.distances.map((dist) => (
@@ -147,9 +249,9 @@ function EventCard({ event }: { event: ClubEvent }) {
         {event.note && <p className={styles.eventNote}>{event.note}</p>}
       </div>
 
-      {(event.registrationUrl || event.resultsUrl) && (
+      {((!club && event.registrationUrl) || event.resultsUrl) && (
         <div className={styles.eventActions}>
-          {event.registrationUrl && (
+          {!club && event.registrationUrl && (
             <a
               className={styles.btnPrimary}
               href={event.registrationUrl}
@@ -169,6 +271,12 @@ function EventCard({ event }: { event: ClubEvent }) {
               Results
             </a>
           )}
+        </div>
+      )}
+      {club && event.photo && (
+        <div className={styles.eventPhoto}>
+          <Image src={withBasePath(event.photo)} alt={event.title} fill sizes="(max-width: 768px) 100vw, 220px" />
+          <span className={styles.eventPhotoHint}>View photo</span>
         </div>
       )}
     </div>

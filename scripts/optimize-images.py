@@ -1,4 +1,4 @@
-"""Resize and compress website photos (gallery + race photos).
+"""Resize and compress website photos (gallery, race and event photos).
 
 Full-resolution phone photos (5-10 MB each) make pages slow to load. This
 shrinks every image in the target folders under public/images to a sensible
@@ -11,8 +11,9 @@ straight JPEG re-encode at the same file size.
 
 Usage (from the project root):
 
-    python scripts/optimize-images.py           # optimizes gallery AND races
+    python scripts/optimize-images.py           # optimizes gallery, races AND events
     python scripts/optimize-images.py races     # just one folder
+    python scripts/optimize-images.py events    # just the event photos
     python scripts/optimize-images.py gallery/2026-08-community-event
 
 Folders are searched recursively, so 'gallery' covers every album subfolder
@@ -22,8 +23,8 @@ It edits files in place and always outputs .webp, converting .jpg/.jpeg/.png
 originals (the old file is deleted). Images already small enough are left
 untouched, so it is safe to re-run.
 
-NOTE: race photos are linked by exact filename in src/data/events.ts (e.g.
-'/images/races/icebreaker.jpeg'). If you optimize a new race photo, update
+NOTE: race and event photos are linked by exact filename in src/data/events.ts (e.g.
+'/images/races/icebreaker.jpeg'). If you optimize a new race or event photo, update
 that path's extension to .webp too. Gallery photos don't need this — the
 gallery page reads whatever files are in public/images/gallery at build time.
 
@@ -54,7 +55,7 @@ MIN_RESAVE_SAVING = 0.10
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMAGES_ROOT = os.path.join(PROJECT_ROOT, "public", "images")
-DEFAULT_FOLDERS = ["gallery", "races"]
+DEFAULT_FOLDERS = ["gallery", "races", "events"]
 
 
 def optimize(path: str) -> str:
