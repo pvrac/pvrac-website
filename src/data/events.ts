@@ -176,8 +176,22 @@ export const EVENTS: ClubEvent[] = [
     title: "Tshwane Oppie Bol",
     location: "Defence Sports Grounds",
     distances: ['21.1 km','10 km', '5 km','1 mile'],
-    registrationUrl: 'https://runningcalendar.co.za/events/tshwane-oppie-bol',
+    registrationUrl: 'https://www.entryninja.com/events/83768-oppie-bol-2026',
   }, 
+  {
+    date: '2026-11-28',
+    title: "Black Diamonds Race",
+    location: "Akasia Community Hall",
+    distances: ['21.1 km','10 km', '5 km'],
+    registrationUrl: 'https://www.entryninja.com/events/84319',
+  }, 
+  {
+    date: '2026-12-16',
+    title: "City60 Marathon 2026",
+    location: "Church Square,Pretoria",
+    distances: ['60 km','4x15 km','10 km', '5 km'],
+    registrationUrl: 'https://entrygeek.co.za/events/city60-marathon-2026/',
+  }, 28
   {
      type: 'event',
      date: '2026-10-27',
