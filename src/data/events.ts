@@ -191,7 +191,7 @@ export const EVENTS: ClubEvent[] = [
     location: "Church Square,Pretoria",
     distances: ['60 km','4x15 km','10 km', '5 km'],
     registrationUrl: 'https://entrygeek.co.za/events/city60-marathon-2026/',
-  }, 28
+  },
   {
      type: 'event',
      date: '2026-10-27',
