@@ -34,7 +34,8 @@
       "WebFetch(domain:asa.saclubs.co.za)",
       "WebFetch(domain:formspree.io)",
       "Bash(rm -rf .next out)",
-      "Bash(NEXT_BASE_PATH=/pvr-test npm run build)"
+      "Bash(NEXT_BASE_PATH=/pvr-test npm run build)",
+      "Bash(git fetch *)"
     ]
   }
 }
