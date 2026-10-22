@@ -22,11 +22,21 @@
 //   resultsUrl       Link to results (add after the race)
 //   photo            '/images/races/your-photo.jpg' (add after the race)
 //   note             One short extra line
+//
+// CLUB EVENTS (socials, training days, prize-givings, etc.):
+//   type             'event'  (leave out for a race — races are the default)
+//   description      A short sentence or two about the event
+//   photo            '/images/events/your-photo.jpg' (shown on the event card
+//                    while it is upcoming; put the file in public/images/events/)
+//   Events can also use location and note. (No entry button is shown for events.)
+//   Events never appear in the "Latest race" highlight.
 // ---------------------------------------------------------------------------
 
 export type ClubEvent = {
   date: string;
   title: string;
+  type?: 'race' | 'event';
+  description?: string;
   location?: string;
   distances?: string[];
   registrationUrl?: string;
@@ -168,14 +178,44 @@ export const EVENTS: ClubEvent[] = [
     distances: ['21.1 km','10 km', '5 km','1 mile'],
     registrationUrl: 'https://runningcalendar.co.za/events/tshwane-oppie-bol',
   }, 
-  // Once a race is done, add resultsUrl and photo and it becomes the
-  // "Latest race" highlight at the top. Example:
-  // {
-  //   date: '2026-07-12',
-  //   title: 'Winter Half Marathon',
-  //   location: 'Centurion',
-  //   distances: ['21.1 km', '10 km'],
-  //   resultsUrl: 'https://results.example.com/winter-half-2026',
-  //   photo: '/images/races/winter-half-2026.jpg',
-  // },
+  {
+     type: 'event',
+     date: '2026-10-27',
+     title: 'Pink Breast Cancer Time Trial',
+     location: 'Church',
+     description: "Time trial with braai afterwards. Bring ladies' toiletries or sanitary pads",
+     photo: '/images/events/PinkBreast.webp',
+  },
+  {
+     type: 'event',
+     date: '2026-12-4',
+     title: "Einstein's 10 Day Charity Challenge Day 1",
+     location: 'tbd',
+     description: 'Details soon',
+     //photo: '/images/events/PinkBreast.webp',
+  },
+  {
+     type: 'event',
+     date: '2026-12-5',
+     title: "Year End Function",
+     location: 'tbd',
+     description: 'Details soon',
+     //photo: '/images/events/PinkBreast.webp',
+  },
+  {
+     type: 'event',
+     date: '2026-12-18',
+     title: "Waterkloof Christmas Lights Run",
+     location: 'tbd',
+     description: 'Details soon',
+     //photo: '/images/events/PinkBreast.webp',
+  },
+  {
+     type: 'event',
+     date: '2026-12-16',
+     title: "Pancake Run",
+     location: 'tbd',
+     description: 'Details soon',
+     //photo: '/images/events/PinkBreast.webp',
+  },
 ];

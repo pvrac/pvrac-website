@@ -233,7 +233,235 @@
   outline: none;
 }
 
+/* --- Filter + club events --- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.filterBtn {
+  background: transparent;
+  color: var(--dark-blue);
+  border: 2px solid var(--dark-blue);
+  padding: 0.45rem 1.25rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.filterBtn:hover,
+.filterBtn:focus-visible,
+.filterActive {
+  background: var(--dark-blue);
+  color: var(--white);
+  outline: none;
+}
+
+.clubEvent {
+  border-left: 5px solid var(--gold);
+  overflow: hidden;
+  min-height: 149px; /* same bar height as a race card */
+}
+
+.eventTag {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.6rem;
+  border-radius: 20px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.eventDesc {
+  color: #444;
+  font-size: 0.95rem;
+  /* one line on the card keeps it the same height as race cards; the pop-up shows it all */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:focus-visible {
+  outline: 3px solid var(--dark-blue);
+  outline-offset: 2px;
+}
+
+.eventPhoto {
+  position: relative;
+  flex-shrink: 0;
+  align-self: stretch;
+  width: 200px;
+  background: var(--light-gray);
+  /* cancel the card padding so the photo fills the whole right side */
+  margin: -1.25rem -1.5rem -1.25rem 0;
+}
+
+/* contain = the whole photo is always visible, never cropped */
+.eventPhoto img {
+  object-fit: contain;
+}
+
+.eventPhotoHint {
+  position: absolute;
+  left: 50%;
+  bottom: 0.5rem;
+  transform: translate(-50%, 6px);
+  background: rgba(10, 25, 60, 0.85);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.clickable:hover .eventPhotoHint,
+.clickable:focus-visible .eventPhotoHint {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* --- Photo pop-up --- */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(5, 15, 40, 0.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: modalFade 0.2s ease;
+}
+
+.modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(900px, 100%);
+  max-height: 100%;
+  background: var(--white);
+  border-radius: 20px;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  animation: modalPop 0.25s ease;
+}
+
+.modalClose {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(10, 25, 60, 0.75);
+  color: var(--white);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.modalClose:hover,
+.modalClose:focus-visible {
+  background: var(--navy);
+  outline: none;
+}
+
+.modalImageWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0b1530;
+  min-height: 0;
+}
+
+.modalImage {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+}
+
+.modalCaption {
+  padding: 1.25rem 1.75rem 1.5rem;
+  border-top: 4px solid var(--gold);
+  overflow-y: auto;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.modalMeta {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.modalDesc {
+  color: #333;
+  line-height: 1.6;
+}
+
+@keyframes modalFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
 @media (max-width: 768px) {
+  .clubEvent {
+    min-height: 0;
+  }
+
+  .modalBackdrop {
+    padding: 0.75rem;
+  }
+
+  .modalCaption {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  .eventPhotoHint {
+    display: none;
+  }
+
+  .eventPhoto {
+    width: calc(100% + 3rem);
+    min-height: 0;
+    height: 170px;
+    margin: 0 -1.5rem -1.25rem;
+    order: 3;
+  }
+
   .recap {
     grid-template-columns: 1fr;
   }
