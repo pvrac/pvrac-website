@@ -183,7 +183,7 @@ export const EVENTS: ClubEvent[] = [
      date: '2026-10-27',
      title: 'Pink Breast Cancer Time Trial',
      location: 'Church',
-     description: "Time trial with braai afterwards. Bring ladies' toiletries or sanitary pads",
+     description: "Time trial with braai afterwards. Bring ladies' toiletries or sanitary pads.",
      photo: '/images/events/PinkBreast.webp',
   },
   {

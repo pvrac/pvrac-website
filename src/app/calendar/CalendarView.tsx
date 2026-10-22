@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, type KeyboardEvent } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import { withBasePath } from '@/lib/basePath';
 import type { ClubEvent } from '@/data/events';
@@ -137,7 +138,10 @@ function PhotoModal({ event, onClose }: { event: ClubEvent; onClose: () => void 
     };
   }, [onClose]);
 
-  return (
+  // Rendered into <body>: the calendar section has a backdrop-filter, which would
+  // otherwise make this "fixed" overlay position itself relative to the section
+  // instead of the browser window.
+  return createPortal(
     <div className={styles.modalBackdrop} onClick={onClose}>
       <div
         className={styles.modal}
@@ -170,7 +174,8 @@ function PhotoModal({ event, onClose }: { event: ClubEvent; onClose: () => void 
           {event.description && <p className={styles.modalDesc}>{event.description}</p>}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
