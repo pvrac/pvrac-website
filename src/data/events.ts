@@ -162,7 +162,8 @@ export const EVENTS: ClubEvent[] = [
     title: "aQuelle Jacaranda City Challenge 2026",
     location: "Rietondale High School",
     distances: ['42.2km','21.1 km','10 km', '5 km'],
-    registrationUrl: 'https://www.entryninja.com/events/84195-jacaranda-city-challenge',
+    resultsUrl: 'https://results.finishtime.co.za/results.aspx?CId=35&RId=8140',
+     photo: '/images/races/Jacaranda.webp',
   }, 
   {
     date: '2026-10-31',
