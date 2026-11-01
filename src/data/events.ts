@@ -170,7 +170,8 @@ export const EVENTS: ClubEvent[] = [
     title: "Irene Farm Race with Discovery Vitality 2026",
     location: "ARC Campus",
     distances: ['21.1 km','10 km', '5 km'],
-    registrationUrl: 'https://www.entryninja.com/events/84315-irene-farm-race/',
+    resultsUrl: 'https://results.finishtime.co.za/results.aspx?CId=35&RId=8173',
+    photo: '/images/races/Irene.webp',
   }, 
     {
     date: '2026-11-07',
