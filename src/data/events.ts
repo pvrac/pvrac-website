@@ -204,6 +204,14 @@ export const EVENTS: ClubEvent[] = [
   },
   {
      type: 'event',
+     date: '2026-11-21',
+     title: '25th Anniversary Run',
+     location: 'Church',
+     description: "Run any distance. Ideal: 25km or 12.5km. Relay teams welcome. Braai afterwards.",
+     photo: '/images/events/25th.webp',
+  },
+  {
+     type: 'event',
      date: '2026-12-4',
      title: "Einstein's 10 Day Charity Challenge Day 1",
      location: 'tbd',
@@ -214,9 +222,9 @@ export const EVENTS: ClubEvent[] = [
      type: 'event',
      date: '2026-12-5',
      title: "Year End Function",
-     location: 'tbd',
-     description: 'Details soon',
-     //photo: '/images/events/PinkBreast.webp',
+     location: 'Rietvallei Dam',
+     description: 'Bring your own drinks & braai meat. Prizegiving & Trophy handover. 12:00.',
+     photo: '/images/events/YearEnd.webp',
   },
   {
      type: 'event',
