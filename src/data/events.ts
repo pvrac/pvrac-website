@@ -195,6 +195,27 @@ export const EVENTS: ClubEvent[] = [
     registrationUrl: 'https://entrygeek.co.za/events/city60-marathon-2026/',
   },
   {
+    date: '2026-12-06',
+    title: "Mandela Remembrance Walk & Run 2026",
+    location: "Union Buildings",
+    distances: ['21.1 km','10 km', '5 km'],
+    registrationUrl: 'https://secure.onreg.com/onreg2/front/step1.php?id=8146',
+  },
+  {
+    date: '2026-12-06',
+    title: "The Wonderful Run",
+    location: "Hoërskool Akasia",
+    distances: ['21.1 km','10 km', '5 km'],
+    registrationUrl: 'https://www.entryninja.com/events/84447',
+  },
+  {
+    date: '2027-01-09',
+    title: "Om die Dorp",
+    location: "PVR Geloofsfamilie",
+    distances: ['21.1 km','10 km', '5 km'],
+    registrationUrl: 'https://www.entryninja.com/events/84723',
+  },
+  {
      type: 'event',
      date: '2026-10-27',
      title: 'Pink Breast Cancer Time Trial',
