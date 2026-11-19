@@ -202,7 +202,7 @@ export const EVENTS: ClubEvent[] = [
     registrationUrl: 'https://secure.onreg.com/onreg2/front/step1.php?id=8146',
   },
   {
-    date: '2026-12-06',
+    date: '2026-12-12',
     title: "The Wonderful Run",
     location: "Hoërskool Akasia",
     distances: ['21.1 km','10 km', '5 km'],
